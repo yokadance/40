@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Cumpleaños</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: #e7f0e4;
+            color: #2d4739;
+            text-align: center;
+        }
+        #hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://i.ibb.co/G3kGwqmS/bg40.png') no-repeat center center/cover;
+            color: #2d4739;
+            position: relative;
+            overflow: hidden;
+        }
+        #hero img {
+            width: 80%;
+            max-width: 400px;
+            animation: fadeInTop 1.5s ease-in-out forwards;
+        }
+        .decorative-image {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .top {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        .bottom {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fadeOut 2s ease-in-out forwards;
+        }
+        .left {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            animation: fadeLeft 2s ease-in-out forwards;
+        }
+        .right {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            animation: fadeRight 2s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .arrow {
+            font-size: 2.5rem;
+            cursor: pointer;
+            margin-top: 20px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        section {
+            padding: 30px 20px;
+            background: white;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+        button, a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #577590;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        button:hover, a:hover {
+            background: #2d4739;
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+            button, a {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+<section id="hero">
+    <img src="https://i.ibb.co/0ySzGCSN/savethedate.png" alt="Llegan mis 40 y quiero que los festejemos juntos">
+   
+
+    <div class="arrow" onclick="scrollToSection('evento')">⬇</div>
+</section>
+
+<section id="evento">
+    <h2>Detalles del Evento</h2>
+    <p><strong>Fecha:</strong> 7 de Marzo</p>
+    <p><strong>Hora:</strong> 20:45 Hrs</p>
+    <p><strong>Lugar:</strong> Chacra La Joaquina, Cno. de la Redención 7005, Montevideo</p>
+    <button onclick="openMaps()">Cómo llegar</button>
+</section>
+
+<section id="confirmar">
+    <h2>Confirmar Asistencia</h2>
+    <a href="https://wa.me/[TU_NUMERO]?text=Asistir%C3%A9%20a%20celebrar" target="_blank">Confirmar por WhatsApp</a>
+</section>
+
+<section id="regalos">
+    <h2>Números de Cuenta para Regalos</h2>
+    <p>CA BROU UY 001226535-00004</p>
+    <p>CA BROU US$ 001226535-00004</p>
+</section>
+</body>
+</html>
