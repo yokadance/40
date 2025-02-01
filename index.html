@@ -15,6 +15,8 @@
             color: #2d4739;
             text-align: center;
         }
+
+        /* Hero Section */
         #hero {
             display: flex;
             flex-direction: column;
@@ -25,87 +27,23 @@
             color: #2d4739;
             position: relative;
             overflow: hidden;
+            border-radius: 15px; /* Border radius for mobile */
         }
+
         #hero img {
             width: 80%;
             max-width: 400px;
             animation: fadeInTop 1.5s ease-in-out forwards;
         }
-        .decorative-image {
-            position: absolute;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .top {
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: fadeIn 2s ease-in-out forwards;
-        }
-        .bottom {
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: fadeOut 2s ease-in-out forwards;
-        }
-        .left {
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            animation: fadeLeft 2s ease-in-out forwards;
-        }
-        .right {
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            animation: fadeRight 2s ease-in-out forwards;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeOut {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        @keyframes fadeRight {
-            from {
-                opacity: 0;
-                transform: translateX(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+
         .arrow {
             font-size: 2.5rem;
             cursor: pointer;
             margin-top: 10px;
             animation: bounce 2s infinite;
         }
+
+        /* Animations */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
@@ -117,6 +55,19 @@
                 transform: translateY(-5px);
             }
         }
+
+        @keyframes fadeInTop {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
         section {
             padding: 30px 20px;
             background: white;
@@ -124,7 +75,15 @@
             border-radius: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 500px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
         }
+
+        section h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
         button, a {
             display: inline-block;
             margin: 10px;
@@ -135,15 +94,43 @@
             border-radius: 5px;
             transition: background 0.3s ease;
         }
+
         button:hover, a:hover {
             background: #2d4739;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
         @media (max-width: 600px) {
             body {
                 font-size: 14px;
             }
+
+            #hero img {
+                width: 90%;
+            }
+
             button, a {
                 width: 80%;
+            }
+
+            #hero {
+                padding: 10px;
+            }
+
+            section {
+                margin: 10px;
+                padding: 20px;
             }
         }
     </style>
@@ -151,8 +138,6 @@
 <body>
 <section id="hero">
     <img src="https://i.ibb.co/0ySzGCSN/savethedate.png" alt="Llegan mis 40 y quiero que los festejemos juntos">
-   
-
     <div class="arrow" onclick="scrollToSection('evento')">⬇</div>
 </section>
 
@@ -162,11 +147,13 @@
     <p><strong>Hora:</strong> 20:45 Hrs</p>
     <p><strong>Lugar:</strong> Chacra La Joaquina, Cno. de la Redención 7005, Montevideo</p>
     <button onclick="openMaps()">Cómo llegar</button>
+    <div class="arrow" onclick="scrollToSection('confirmar')">⬇</div>
 </section>
 
 <section id="confirmar">
     <h2>Confirmar Asistencia</h2>
     <a href="https://wa.me/[TU_NUMERO]?text=Asistir%C3%A9%20a%20celebrar" target="_blank">Confirmar por WhatsApp</a>
+    <div class="arrow" onclick="scrollToSection('regalos')">⬇</div>
 </section>
 
 <section id="regalos">
@@ -174,5 +161,18 @@
     <p>CA BROU UY 001226535-00004</p>
     <p>CA BROU US$ 001226535-00004</p>
 </section>
+
+<script>
+    // Scroll function to navigate between sections
+    function scrollToSection(id) {
+        const section = document.getElementById(id);
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Open maps in new tab
+    function openMaps() {
+        window.open('https://www.google.com/maps?q=Chacra+La+Joaquina', '_blank');
+    }
+</script>
 </body>
 </html>
