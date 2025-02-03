@@ -27,7 +27,6 @@
             color: #2d4739;
             position: relative;
             overflow: hidden;
-            border-radius: 15px; /* Border radius for mobile */
         }
 
         #hero img {
@@ -43,7 +42,6 @@
             animation: bounce 2s infinite;
         }
 
-        /* Animations */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
@@ -67,36 +65,12 @@
             }
         }
 
-        /* Sections */
         section {
             padding: 30px 20px;
-            background: white;
-            margin: 20px auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 500px;
+            margin: 20px auto;
             opacity: 0;
             animation: fadeIn 1s ease-in-out forwards;
-        }
-
-        section h2 {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        button, a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background: #577590;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        button:hover, a:hover {
-            background: #2d4739;
         }
 
         @keyframes fadeIn {
@@ -110,7 +84,40 @@
             }
         }
 
-        /* Responsive Styles */
+        button, a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            background: #577590;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover, a:hover {
+            background: #2d4739;
+        }
+
+        .highlight {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2d4739;
+            animation: fadeInLeft 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         @media (max-width: 600px) {
             body {
                 font-size: 14px;
@@ -123,22 +130,20 @@
             button, a {
                 width: 80%;
             }
-
-            #hero {
-                padding: 10px;
-            }
-
-            section {
-                margin: 10px;
-                padding: 20px;
-            }
         }
     </style>
 </head>
 <body>
 <section id="hero">
     <img src="https://i.ibb.co/0ySzGCSN/savethedate.png" alt="Llegan mis 40 y quiero que los festejemos juntos">
+    <div class="arrow" onclick="scrollToSection('mensaje')">⬇</div>
+</section>
+
+<section id="mensaje">
+    <p>No se trata solo de una fecha más en el calendario, sino de un momento especial que quiero compartir con las personas que realmente importan en mi vida. Y tú eres una de ellas.</p>
+    <p>Tu presencia no es solo un gesto, es un regalo en sí mismo. Porque cada risa, cada conversación y cada instante compartidos hacen que este día sea aún más especial.</p>
     <div class="arrow" onclick="scrollToSection('evento')">⬇</div>
+
 </section>
 
 <section id="evento">
@@ -146,30 +151,35 @@
     <p><strong>Fecha:</strong> 7 de Marzo</p>
     <p><strong>Hora:</strong> 20:45 Hrs</p>
     <p><strong>Lugar:</strong> Chacra La Joaquina, Cno. de la Redención 7005, Montevideo</p>
+    <p>No se trata solo de una fecha más en el calendario, sino de un momento especial que quiero compartir con las personas que realmente importan en mi vida. Y tú eres una de ellas.</p>
+    <p>Tu presencia no es solo un gesto, es un regalo en sí mismo. Porque cada risa, cada conversación y cada instante compartidos hacen que este día sea aún más especial.</p>
     <button onclick="openMaps()">Cómo llegar</button>
     <div class="arrow" onclick="scrollToSection('confirmar')">⬇</div>
 </section>
 
 <section id="confirmar">
     <h2>Confirmar Asistencia</h2>
-    <a href="https://wa.me/59899000214?text=Asistir%C3%A9%20a%20al%20cumple!" target="_blank">Confirmar por WhatsApp</a>
+    <p>¡Me encantaría que me acompañaras en este día tan especial!</p>
+    <a href="https://wa.me/59899000214?text=Asistir%C3%A9%20a%20al%20cumple!" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/WhatsApp_icon.png" alt="WhatsApp" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+        Confirmar por WhatsApp
+    </a>
     <div class="arrow" onclick="scrollToSection('regalos')">⬇</div>
 </section>
 
 <section id="regalos">
-    <h2>Números de Cuenta para Regalos</h2>
     <p>CA BROU UY 001226535-00004</p>
     <p>CA BROU US$ 001226535-00004</p>
 </section>
 
+<p class="highlight">¡No faltes!</p>
+
 <script>
-    // Scroll function to navigate between sections
     function scrollToSection(id) {
         const section = document.getElementById(id);
         section.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Open maps in new tab
     function openMaps() {
         window.open('https://www.google.com/maps?q=Chacra+La+Joaquina', '_blank');
     }
