@@ -1,15 +1,18 @@
-// Asegurarse de que las imágenes se carguen y animen correctamente
 document.addEventListener("DOMContentLoaded", () => {
-    // No es necesario establecer la opacidad aquí si la animación ya la maneja
+    // Asegurarse de que las imágenes se carguen y animen correctamente
     const decorativeImages = document.querySelectorAll(".decorative-image");
     decorativeImages.forEach((img) => {
         img.style.opacity = "1"; // Hacer las imágenes visibles
     });
 
-    // Desplazarse al evento cuando se hace clic en la flecha
-    const arrow = document.querySelector(".arrow");
-    arrow.addEventListener("click", () => {
-        scrollToSection("evento");
+    // Obtener todas las flechas
+    const arrows = document.querySelectorAll(".arrow");
+    arrows.forEach((arrow) => {
+        // Establecer el ID de la sección al que debe ir cada flecha
+        const targetSectionId = arrow.getAttribute("data-target");
+        arrow.addEventListener("click", () => {
+            scrollToSection(targetSectionId);
+        });
     });
 });
 
